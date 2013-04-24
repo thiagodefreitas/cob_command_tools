@@ -73,7 +73,7 @@ import signal
 
 planning_enabled = False
 base_diff_enabled = False
-confirm_commands_enabled = True
+confirm_commands_enabled = False
 
 initialized = False
 
@@ -131,10 +131,10 @@ class GtkGeneralPanel(gtk.Frame):
     hbox=gtk.HBox(True, 0)
     self.status_image = gtk.Image()
     #self.status_image.set_from_file(roslib.packages.get_pkg_dir("cob_command_gui") + "/common/files/icons/weather-clear.png")
-    hbox.pack_start(self.status_image, False, False, 0)
-    self.status_label = gtk.Label("Status OK")
-    hbox.pack_start(self.status_label, False, False, 0)
-    self.vbox.pack_start(hbox, False, False, 5)
+    #hbox.pack_start(self.status_image, False, False, 0)
+    #self.status_label = gtk.Label("Status OK")
+    #hbox.pack_start(self.status_label, False, False, 0)
+    #self.vbox.pack_start(hbox, False, False, 5)
 
     butstop = gtk.Button("Stop all")
     butstop.connect("clicked", lambda w: self.stop_all(buttons.stop_buttons))
@@ -148,18 +148,18 @@ class GtkGeneralPanel(gtk.Frame):
     butrec.connect("clicked", lambda w: self.recover_all(buttons.recover_buttons))
     self.vbox.pack_start(butrec, False, False, 5)
 
-    plan_check = gtk.CheckButton("Planning")#
-    plan_check.connect("toggled", self.planned_toggle)
-    self.vbox.pack_start(plan_check, False, False, 5)
+    #plan_check = gtk.CheckButton("Planning")#
+    #plan_check.connect("toggled", self.planned_toggle)
+    #self.vbox.pack_start(plan_check, False, False, 5)
 
-    base_mode_check = gtk.CheckButton("Base Diff")
-    base_mode_check.connect("toggled", self.base_mode_toggle)
-    self.vbox.pack_start(base_mode_check, False, False, 5)
+    #base_mode_check = gtk.CheckButton("Base Diff")
+    #base_mode_check.connect("toggled", self.base_mode_toggle)
+    #self.vbox.pack_start(base_mode_check, False, False, 5)
 
-    confirm_com_check = gtk.CheckButton("Confirm Commands")
-    confirm_com_check.set_active(confirm_commands_enabled)
-    confirm_com_check.connect("toggled", self.confirm_com_toggle)
-    self.vbox.pack_start(confirm_com_check, False, False, 5)
+    #confirm_com_check = gtk.CheckButton("Confirm Commands")
+    #confirm_com_check.set_active(confirm_commands_enabled)
+    #confirm_com_check.connect("toggled", self.confirm_com_toggle)
+    #self.vbox.pack_start(confirm_com_check, False, False, 5)
     
     but = gtk.Button(stock=gtk.STOCK_QUIT )
     but.connect("clicked", lambda w: gtk.main_quit())
